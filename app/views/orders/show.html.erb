@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class="id">
+  <div class="hlabel">Id:</div>
+  <%= @order.id %>
+</div>
+
+<div class="status">
+  <div class="hlabel">Status:</b>
+  <%= @order.status %>
+</div>
+
+<div class="movements">
+  <div class="hlabel">Movements:</b>
+  <% @order.movements.each do |m| %>
+    <div class="movement">
+      <div class="attribute amount">
+	<%= m.amount %>
+      </div>
+      <div class="attribute product">
+	<%= m.product.friendly_label %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

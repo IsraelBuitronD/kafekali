@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Db flnm="kafekali" nm="kafekali" ver="1.3.4">
+  <VerLbl/>
+  <VerNotes/>
+  <DefTblOpts/>
+  <DocFolder>/home/israel/proyectos/kafekali/db/design</DocFolder>
+  <Sch Cm="" nm="schemaA">
+    <Tbl UsSo="1" nm="movement_types">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkmovement_types"/>
+      <Cl au="0" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="movements">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkmovements"/>
+      <Cl au="0" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="amount" nu="0">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="created_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="updated_at" nu="0">
+        <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="note" nu="0">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="movement_type_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="product_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="provider_id" nu="1">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_movements_movement_types" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="movement_types" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="movements" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="movement_type_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_movements_products" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="products" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="movements" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="product_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_movements_providers" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="providers" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="movements" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="provider_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="product_types">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkproduct_types"/>
+      <Cl au="0" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="products">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkproducts"/>
+      <Cl au="0" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="product_type_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_products_product_types" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="product_types" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="products" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="product_type_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="providers">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkproviders"/>
+      <Cl au="0" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="name" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <CustomTypes/>
+  </Sch>
+  <Dgm nm="diagramA">
+    <RnCf FtSz="9" lkStgy="OffsetDirect" zm="1.0">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="1"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="1"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="0"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="1" FkNms="1" PkCols="1"/>
+      <ErNotation>DbwErNotation</ErNotation>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="products" x="20" y="125"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="product_types" x="38" y="34"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="providers" x="414" y="273"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="movements" x="390" y="116"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="movement_types" x="411" y="22"/>
+    <FkGl bkCl="ff000000" nm="schemaA.movements.fk_movements_movement_types"/>
+    <FkGl bkCl="ff000000" nm="schemaA.movements.fk_movements_products"/>
+    <FkGl bkCl="ff000000" nm="schemaA.movements.fk_movements_providers"/>
+    <FkGl bkCl="ff000000" nm="schemaA.products.fk_products_product_types"/>
+    <Notes/>
+    <Zones/>
+  </Dgm>
+  <RnmMgr NxRnmId="16">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="products" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="1" nNm="id" oNm="productsId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="products" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="2" nNm="name" oNm="productsName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="product_types" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="3" nNm="id" oNm="product_typesId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="product_types" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="4" nNm="name" oNm="product_typesName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="providers" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="5" nNm="id" oNm="providersId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="providers" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="6" nNm="name" oNm="providersName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movements" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="7" nNm="id" oNm="movementsId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movements" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="8" nNm="created_at" oNm="InsertBy"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movements" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="9" nNm="note" oNm="comment"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movement_types" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="10" nNm="id" oNm="movement_typesId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movement_types" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="11" nNm="name" oNm="movement_typesName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movements" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="12" nNm="movement_type_id" oNm="movement_types_id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="products" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="13" nNm="product_type_id" oNm="product_types_id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movements" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="14" nNm="product_id" oNm="products_id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="movements" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="15" nNm="provider_id" oNm="providers_id"/>
+    </RnmCh>
+  </RnmMgr>
+  <DbDocOptionMgr>
+    <BasicOptionMgr>
+      <Name>db.doc.option.mgr</Name>
+      <BoolOpt lbl="Diagrams" nm="doc.diagrams" on="1" spl="0"/>
+      <BoolOpt lbl="Foreign Keys" nm="doc.fks" on="1" spl="0"/>
+      <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="0"/>
+      <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
+      <BoolOpt lbl="Procedures" nm="doc.procs" on="1" spl="0"/>
+      <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="0"/>
+      <BoolOpt lbl="Sequences" nm="doc.sequences" on="1" spl="0"/>
+      <BoolOpt lbl="Tables" nm="doc.tables" on="1" spl="0"/>
+      <BoolOpt lbl="Triggers" nm="doc.triggers" on="1" spl="0"/>
+      <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
+    </BasicOptionMgr>
+  </DbDocOptionMgr>
+  <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="1"/>
+  </OpenEditors>
+  <TreePaths>
+    <TreePath/>
+    <TreePath>/Schemas (1)</TreePath>
+    <TreePath>/Schemas (1)/schemaA</TreePath>
+    <TreePath>/Schemas (1)/schemaA/Tables (5)</TreePath>
+    <TreePath>/Diagrams (1)</TreePath>
+    <TreePath>/Diagrams (1)/diagramA</TreePath>
+  </TreePaths>
+</Db>

@@ -1,0 +1,16 @@
+<div class="movement">
+  <div class="attribute product">
+    <%= f.label :product_id %><br />
+    <%= f.collection_select :product_id, Product.all, :id, :friendly_label, :include_blank => true %>
+  </div>
+
+  <div class="attribute amount">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+
+  <div class="attribute movementtype">
+    <%= f.label :movement_type_id %><br />
+    <%= f.collection_select :movement_type_id, MovementType.expenses, :id, :name %>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<h1>Listing purchases</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Amount</th>
+    <th>Provider</th>
+    <th>Created at</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @movements.each do |purchase| %>
+  <tr>
+    <td><%= purchase.product.friendly_label %></td>
+    <td><%= purchase.amount %></td>
+    <td><%= purchase.provider.name %></td>
+    <td><%= purchase.created_at %></td>
+    <td><%= purchase.note %></td>
+    <td><%= link_to 'Show', purchase_path(purchase) %></td>
+    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+    <td><%= link_to 'Destroy', purchase_path(purchase), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase', new_purchase_path %>

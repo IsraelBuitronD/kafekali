@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @movement.product.friendly_label %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @movement.amount %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @movement.provider.name %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @movement.note %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_path(@movement) %> |
+<%= link_to 'Back', purchases_path %>

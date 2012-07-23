@@ -1,0 +1,42 @@
+<%= form_for(@movement) do |f| %>
+  <% if @movement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
+
+      <ul>
+      <% @movement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.collection_select(:product_id, Product.all, :id, :friendly_label) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :provider_id %><br />
+    <%= f.collection_select(:provider_id, Provider.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :movement_type_id %><br />
+    <%= f.select :movement_type_id, options_from_collection_for_select(MovementType.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
